@@ -20,7 +20,7 @@
 
     require_once('../blocks/header.php')
 ?>
-<h1 id="<?=$count?>"><?=$title?></h1>
+<h1 class="<?=$count?>"><?=$title?></h1>
 <h2>цена: <?=$price?>$</h2>
 <p></p>
 <?php

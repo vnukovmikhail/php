@@ -40,16 +40,35 @@ a {
 }
 
 h1 { position: relative; }
-#out-of-stock::after,
-#in-stock::after {
+h1.out-of-stock::after,
+h1.in-stock::after {
     position: absolute;
     margin-left: 15px;
 }
-#out-of-stock::after {
+h1.out-of-stock::after {
     content: '[распродано]';
     color: lightcoral;
 }
-#in-stock::after {
+h1.in-stock::after {
     content: '[в наличии]';
     color: limegreen;
+}
+
+fieldset { position: relative; }
+fieldset.out-of-stock::after,
+fieldset.in-stock::after {
+    position: absolute;
+    border-radius: 3.5px;
+    width: 7px;
+    height: 7px;
+    right: 3px;
+    top: -3px;
+}
+fieldset.out-of-stock::after {
+    content: '';
+    background-color: lightcoral;
+}
+fieldset.in-stock::after {
+    content: '';
+    background-color: limegreen;
 }

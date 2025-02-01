@@ -1,5 +1,5 @@
 <?php
-    $sort = isset($_GET['sort']) ? $_GET['sort'] : 'ASC';
+    $sort = isset($_POST['sort']) ? $_POST['sort'] : 'ASC';
     $pdo = new PDO('mysql:host=MySQL-8.2;dbname=e-shop.online', 'root', '');
     $sql = 'SELECT * FROM products ORDER BY price '.$sort;
     $query = $pdo->prepare($sql);
@@ -19,7 +19,7 @@
         <input type="submit" value="Создать">
     </fieldset>
 </form>
-<br><form method="get">
+<br><form method="post">
     <label for="sort">Сортировать по цене:</label>
     <select name="sort" id="sort" onchange="this.form.submit()">
         <option value="ASC" <?php if($sort == 'ASC') echo 'selected';?>>Возрастание</option>
@@ -30,7 +30,14 @@
     <?php
         foreach ($products as $product) {
             $productUrl = 'product/' . $product['id'];
-            echo '<a href="'.$productUrl.'"><fieldset>';
+            $count = $product['count'];
+            if($count) {
+                $count = 'in-stock';
+            } else {
+                $count = 'out-of-stock';
+            }
+
+            echo '<a href="'.$productUrl.'"><fieldset class='.$count.'>';
             echo '<legend>Товар</legend>';
             echo '<p>'.$product['title'].'</p>';
             echo '<p>'.$product['price'].'$</p>';
