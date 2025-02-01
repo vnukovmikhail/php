@@ -5,13 +5,9 @@
     font-family: monospace;
 }
 
-body {
-    padding: 5px;
-}
-
-h1 {
-    padding: 5px 0;
-}
+body { padding: 5px; }
+fieldset { padding: 7px; }
+h1 { padding: 5px 0; }
 
 section {
     display: flex;
@@ -19,8 +15,10 @@ section {
     gap: 5px;
 }
 
-fieldset {
-    padding: 7px;
+form button {
+    background: none;
+    border: none;
+    cursor: pointer;
 }
 
 a {

@@ -1,7 +1,8 @@
 AddDefaultCharset UTF-8
 
 RewriteEngine on
-RewriteRule ^product/([a-zA-Z0-9-]+)$ product.php?id=$1 [L,QSA]
+RewriteBase /
+RewriteRule ^pages/product/([a-zA-Z0-9-]+)$ /pages/product?id=$1 [L,QSA]
 RewriteRule ^([^.?]+)$ %{REQUEST_URI}.php [L]
 RewriteCond %{THE_REQUEST} "^[^ ]* .*?\.php[? ].*$"
 RewriteRule .* - [L,R=404]

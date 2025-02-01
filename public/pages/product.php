@@ -18,11 +18,11 @@
         $count = 'out-of-stock';
     }
 
-    require_once('blocks/header.php')
+    require_once('../blocks/header.php')
 ?>
 <h1 id="<?=$count?>"><?=$title?></h1>
 <h2>цена: <?=$price?>$</h2>
 <p></p>
 <?php
-    require_once('blocks/footer.php')
+    require_once('../blocks/footer.php')
 ?>

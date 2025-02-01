@@ -7,8 +7,8 @@
     <meta name="keywords" content="копмлектующие, пк, процессоры, видеокарты, платы"/>
     <meta name="author" content="Mihail">
 
-    <link rel="shortcut icon" href="../icon.png">
-    <link rel="stylesheet" href="../style.css">
+    <link rel="shortcut icon" href="/icon.png">
+    <link rel="stylesheet" href="/style.css">
     <title><?=$title?></title>
 </head>
 <body>
@@ -16,6 +16,6 @@
         <a href="/">Главная</a> |
         <a href="/about-us">Про нас</a> |
         <a href="/info">Информация</a> |
-        <a href="/products">Продукция</a>
+        <a href="/pages/products">Продукция</a>
         <!-- <a href="">Авторизация</a> -->
     </header>
