@@ -1,0 +1,57 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: monospace;
+}
+
+body {
+    padding: 5px;
+}
+
+h1 {
+    padding: 5px 0;
+}
+
+section {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+
+fieldset {
+    padding: 7px;
+}
+
+a {
+    text-decoration: none;
+    position: relative;
+    color: black;
+    transition: .5s;
+} a::after {
+    content: '';
+    position: absolute;
+    background: black;
+    bottom: -3px;
+    width: 0;
+    height: 3px;
+    left: 0;
+    transition: width .2s ease-in-out;
+} a:hover::after {
+    width: 100%;
+}
+
+h1 { position: relative; }
+#out-of-stock::after,
+#in-stock::after {
+    position: absolute;
+    margin-left: 15px;
+}
+#out-of-stock::after {
+    content: '[распродано]';
+    color: lightcoral;
+}
+#in-stock::after {
+    content: '[в наличии]';
+    color: limegreen;
+}
