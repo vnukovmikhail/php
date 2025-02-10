@@ -9,21 +9,6 @@ const delGoods = (e) => {
     saveCart()
     loadCart()
 }
-const plusGoods = (e) => {
-    const id = e.target.dataset.id
-    cart[id]++
-    saveCart()
-    loadCart()
-}
-const minusGoods = (e) => {
-    const id = e.target.dataset.id
-    cart[id]--
-    if(!cart[id]) {
-        delete cart[id]
-    }
-    saveCart()
-    loadCart()
-}
 const showCart = () => {
     $.getJSON('goods.json', function (data) {
         let goods = data
@@ -32,15 +17,11 @@ const showCart = () => {
             html += `<button data-id=${id} class='del-goods'>x</button> `
             html += `<img src='src/${goods[id].img}'> `
             html += `<em>${goods[id].name}</em> `
-            html += `<ins><b>описание:</b><i>${goods[id].description}</i></ins> `
-            html += `<button data-id=${id} class='minus-goods'>-</button>`
-            html += ` <b>${cart[id]}</b> `
-            html += `<button data-id=${id} class='plus-goods'>+</button><br>`
+            html += `<sub>${cart[id]} штук</sub> `
+            html += `<b><i>описание: ${goods[id].description}</i></b><br>`
         }
         $('.main-cart').html(html)
         $('.del-goods').on('click', (e) => delGoods(e))
-        $('.minus-goods').on('click', (e) => minusGoods(e))
-        $('.plus-goods').on('click', (e) => plusGoods(e))
     })
 }
 const isEmpty = (obj) => {
