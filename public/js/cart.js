@@ -35,7 +35,8 @@ const showCart = () => {
             html += `<ins><b>описание:</b><i>${goods[id].description}</i></ins> `
             html += `<button data-id=${id} class='minus-goods'>-</button>`
             html += ` <b>${cart[id]}</b> `
-            html += `<button data-id=${id} class='plus-goods'>+</button><br>`
+            html += `<button data-id=${id} class='plus-goods'>+</button> `
+            html += `<small>итого:<b>${cart[id] * goods[id].price}$</b></small><br> `
         }
         $('.main-cart').html(html)
         $('.del-goods').on('click', (e) => delGoods(e))
@@ -63,6 +64,33 @@ const loadCart = () => {
     }
 }
 
+const sendEmail = () => {
+    let ename = $('#ename').val()
+    let email = $('#email').val()
+    let ephone = $('#ephone').val()
+    if(!ename || !email || !ephone) {
+        alert('заполните все поля!')
+    } else {
+        if(isEmpty(cart)) {
+            alert('корзина пуста')
+        } else {
+            $.post(
+                'core/mail.php',
+                {
+                    'ename': ename,
+                    'email': email,
+                    'ephone': ephone,
+                    'cart': cart
+                },
+                function(data) {
+                    console.log(data)
+                }
+            )
+        }
+    }
+}
+
 $(document).ready(() => {
     loadCart()
+    $('.send-email').on('click', sendEmail)
 })

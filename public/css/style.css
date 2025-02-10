@@ -71,8 +71,23 @@
     }
 }
 
-img {
+img:not(#goods-out img) {
     --size: 35px;
     width: var(--size);
     transform: translateY(12.5px);
+}
+
+.email-field {
+    width: 310px;
+    display: flex;
+    flex-direction: column;
+
+    & p {
+        margin: 5px 0;
+    }
+
+    & input {
+        height: 17px;
+        width: 70%;
+    }
 }
