@@ -83,7 +83,11 @@ const sendEmail = () => {
                     'cart': cart
                 },
                 function(data) {
-                    console.log(data)
+                    if (data) {
+                        alert('заказ отправлен на рассмотрение')
+                    } else {
+                        alert('повторите заказ')
+                    }
                 }
             )
         }
